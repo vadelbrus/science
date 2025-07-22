@@ -1,0 +1,210 @@
+@import "/css/reset.css";
+
+.app {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  line-height: 1.15;
+  font-size: 14px;
+  /* background-image: url("/assets/2744715.jpg"); */
+}
+
+.app__content {
+  max-width: 1024px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.app__header {
+  text-align: justify;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.header__container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.header__inner,
+.header__description,
+.header__list {
+  margin-bottom: 20px;
+}
+
+.header__inner {
+  padding: 40px 0;
+  background-color: #2a9d8f;
+}
+
+.header__title,
+.header__author {
+  text-align: center;
+}
+
+.header__title {
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.header__author {
+  font-size: 12px;
+  color: #fff;
+}
+
+.header__marked {
+  padding: 2px 4px;
+  background-color: #e9c46a;
+  color: #fff;
+}
+
+.header__marked-bg {
+  position: relative;
+}
+
+.header__marked-bg::before,
+.content__marked-bg::before {
+  position: absolute;
+  content: " ";
+  display: inline-block;
+  width: 100%;
+  bottom: -3px;
+  left: 0;
+  height: 6px;
+  background-color: #e76f51;
+}
+
+.header__subtitle {
+  /* position: relative; */
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+.list {
+  padding-left: 10px;
+  list-style-type: square;
+}
+
+li::marker {
+  color: #e76f51;
+}
+
+/* GENERAL STYLING FOR  SECTIONS */
+.app__section {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.content__subtitle {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+  margin: 0 auto 40px;
+  max-width: 768px;
+  padding: 10px;
+}
+
+.content__description {
+  margin: 40px auto 20px;
+  max-width: 768px;
+}
+
+/* STYLING FOOTER */
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #2a9d8f;
+  color: #fff;
+}
+
+.footer__link {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #e9c46a;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* STYLING CHARTS */
+
+.content-salary__charts,
+.content-inflation__charts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1024px;
+}
+
+.content-salary__chart-container,
+.content-inflation__chart-container {
+  position: relative;
+  width: 50%;
+  height: 400px;
+}
+
+.content-salary__chart-image,
+.content-inflation__chart-image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  transition: all 0.6s ease;
+}
+/*STYLING MAPS */
+
+.content-costs__map,
+.content-happiness__map {
+  height: 400px;
+}
+
+/* STYLING SECURITY CHARTS */
+
+.content-security__charts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1024px;
+  height: 300px;
+}
+
+.content-security__chart-left,
+.content-inflation__chart-right,
+.content-inflation__chart-left,
+.content-security__chart-right {
+  width: 50%;
+  height: 100%;
+}
+
+.content-security__chart-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.content-salary__title-left,
+.content-salary__title-right,
+.content-inflation__title-right,
+.content-inflation__title-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: black;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  z-index: 20;
+}
