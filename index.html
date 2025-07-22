@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caroline Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="app">
+    <header class="app__header header">
+      <div class="header__inner">
+        <h1 class="header__title">Finding the Best Place to Live</h1>
+        <p class="header__author">
+          made by <span class="header__marked">Karolina Kruczek</span>
+        </p>
+      </div>
+      <div class="header__container">
+        <h2 class="header__subtitle">
+          <span class="header__marked-bg">The Story</span> Behind the Data
+        </h2>
+        <p class="header__description">
+          In today’s world, choosing the best place to live isn’t just about
+          scenic views or cultural experiences—it's also about economic
+          sustainability. Especially for those who prefer working on-site rather
+          than remotely, selecting the right country to build a life in starts
+          with one key question: Can I afford to live there on what I earn? To
+          explore this, I have built an interactive Shiny for Python application
+          that helps users compare the monthly average salary with the monthly
+          average cost of living per person across countries.
+        </p>
+        <p class="header__description">
+          I have gathered detailed figures on cost categories (like housing,
+          food, and transport), average salaries, and inflation trends—all
+          wrapped into an interactive interface where you can explore:
+        </p>
+        <ul class="header__list list">
+          <li class="list__item">
+            Historical trends in salary and cost of living
+          </li>
+          <li class="list__item">
+            Country-to-country cost comparisons for a specific year
+          </li>
+          <li class="list__item">A global cost of living map</li>
+          <li class="list__item">Inflation trajectories based on CPI data</li>
+          <li class="list__item">Happiness scores to gauge quality of life</li>
+        </ul>
+        <p class="header__description">
+          This application is designed to help you make informed decisions about
+          where to live, based on real data and trends. Whether you're a digital
+          nomad, a family looking for a new home, or just curious about global
+          living standards, this tool is for you.
+        </p>
+      </div>
+    </header>
+    <main class="app__content content">
+      <section class="app__section content-salary">
+        <h2 class="content__subtitle">
+          <span class="header__marked-bg">What did</span> the data reaveal?
+        </h2>
+
+        <div class="content-salary__charts">
+          <div class="content-salary__chart-container">
+            <h3 class="content-salary__title-left"></h3>
+
+            <div class="content-salary__chart-left"></div>
+          </div>
+          <div class="content-salary__chart-container">
+            <h3 class="content-salary__title-right"></h3>
+            <div class="content-salary__chart-right"></div>
+          </div>
+        </div>
+        <p class="content__description">
+          After comparing the numbers, some striking patterns emerged. We
+          identified countries where the average cost of living significantly
+          exceeds the average salary—in some cases by more than three times,
+          like in Tajikistan. On the other end of the spectrum, there are
+          countries where living expenses represent only a small fraction of the
+          average income, such as Belgium or the Netherlands. " you scroll down,
+          you'll see a smooth transition": On the left side: countries with the
+          lowest cost-to-salary ratios — where people tend to keep more of what
+          they earn. On the right side: countries with the highest ratios —
+          where living takes a disproportionately large bite out of income. Once
+          the scroll completes, only two charts remain: On the left, the country
+          with the lowest share of living costs relative to average salary. On
+          the right, the country with the highest share. In the center, an icon
+          with a label: “From lowest to highest cost-to-salary ratio”
+        </p>
+      </section>
+      <section class="app__section content-costs">
+        <h2 class="content__subtitle">
+          <span class="header__marked-bg">For Remote</span> Workers
+        </h2>
+        <div class="content-costs__map">
+          <script type="text/javascript">
+            window.PlotlyConfig = { MathJaxConfig: "local" };
+          </script>
+          <script
+            charset="utf-8"
+            src="https://cdn.plot.ly/plotly-3.0.1.min.js"
+          ></script>
+          <div
+            id="2779bef6-924e-4c31-bd58-7b921149801f"
+            class="plotly-graph-div"
+            style="height: 400px; width: 100%"
+          ></div>
+          <script type="text/javascript">
+            window.PLOTLYENV = window.PLOTLYENV || {};
+            if (
+              document.getElementById("2779bef6-924e-4c31-bd58-7b921149801f")
+            ) {
+              Plotly.newPlot(
+                "2779bef6-924e-4c31-bd58-7b921149801f",
+                [
+                  {
+                    autocolorscale: false,
+                    colorbar: {
+                      ticktext: [
+                        "$500",
+                        "$750",
+                        "$1000",
+                        "$1250",
+                        "$1500",
+                        "$1750",
+                        "$2000",
+                        "$2250",
+                        "$2500",
+                        "$2750",
+                        "$3000",
+                      ],
+                      tickvals: [
+                        500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500,
+                        2750, 3000,
+                      ],
+                      title: { text: "Cost of Living ($)" },
+                    },
+                    colorscale: [
+                      [0, "rgb(0, 0, 128)"],
+                      [0.1, "rgb(0, 0, 255)"],
+                      [0.2, "rgb(0, 128, 255)"],
+                      [0.3, "rgb(0, 255, 255)"],
+                      [0.4, "rgb(0, 255, 128)"],
+                      [0.5, "rgb(0, 255, 0)"],
+                      [0.6, "rgb(128, 255, 0)"],
+                      [0.7, "rgb(255, 255, 0)"],
+                      [0.8, "rgb(255, 128, 0)"],
+                      [0.9, "rgb(255, 0, 0)"],
+                      [1.0, "rgb(128, 0, 0)"],
+                    ],
+                    hovertemplate:
+                      "\u003cb\u003e%{text}\u003c\u002fb\u003e\u003cbr\u003eCost of Living: \u003cb\u003e$%{z:,.0f}\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e",
+                    locations: [
+                      "CHN",
+                      "IND",
+                      "USA",
+                      "IDN",
+                      "PAK",
+                      "NGA",
+                      "BRA",
+                      "BGD",
+                      "ETH",
+                      "JPN",
+                      "MEX",
+                      "EGY",
+                      "PHL",
+                      "VNM",
+                      "IRN",
+                      "DEU",
+                      "FRA",
+                      "GBR",
+                      "THA",
+                      "ZAF",
+                      "ITA",
+                      "TZA",
+                      "MMR",
+                      "COL",
+                      "KOR",
+                      "KEN",
+                      "ESP",
+                      "ARG",
+                      "UGA",
+                      "DZA",
+                      "AFG",
+                      "UKR",
+                      "SDN",
+                      "POL",
+                      "IRQ",
+                      "CAN",
+                      "MAR",
+                      "AGO",
+                      "UZB",
+                      "PER",
+                      "SAU",
+                      "GHA",
+                      "MYS",
+                      "MOZ",
+                      "NPL",
+                      "VEN",
+                      "CMR",
+                      "YEM",
+                      "AUS",
+                      "PRK",
+                      "MDG",
+                      "SYR",
+                      "TWN",
+                      "BFA",
+                      "NER",
+                      "LKA",
+                      "MLI",
+                      "KAZ",
+                      "ZMB",
+                      "CHL",
+                      "TCD",
+                      "ROU",
+                      "MWI",
+                      "NLD",
+                      "KHM",
+                      "GTM",
+                      "ECU",
+                      "SEN",
+                      "ZWE",
+                      "BEN",
+                      "BDI",
+                      "RWA",
+                      "GIN",
+                      "SSD",
+                      "BOL",
+                      "BEL",
+                      "TUN",
+                      "SOM",
+                      "CUB",
+                      "HTI",
+                      "CZE",
+                      "DOM",
+                      "SWE",
+                      "GRC",
+                      "JOR",
+                      "PRT",
+                      "AZE",
+                      "HND",
+                      "ISR",
+                      "HUN",
+                      "TJK",
+                      "BLR",
+                      "AUT",
+                      "PNG",
+                      "CHE",
+                      "TGO",
+                      "SLE",
+                      "LAO",
+                      "PRY",
+                      "BGR",
+                      "KGZ",
+                      "LBY",
+                      "NIC",
+                      "SRB",
+                      "COG",
+                      "TKM",
+                      "LBN",
+                      "SLV",
+                      "SGP",
+                      "DNK",
+                      "FIN",
+                      "NOR",
+                      "SVK",
+                      "LBR",
+                      "CAF",
+                      "IRL",
+                      "NZL",
+                      "CRI",
+                      "OMN",
+                      "MRT",
+                      "KWT",
+                      "PAN",
+                      "HRV",
+                      "GEO",
+                      "ERI",
+                      "URY",
+                      "MNG",
+                      "ARM",
+                      "LTU",
+                      "ALB",
+                      "JAM",
+                      "GMB",
+                      "QAT",
+                      "MDA",
+                      "NAM",
+                      "BWA",
+                      "SVN",
+                      "GAB",
+                      "LSO",
+                      "LVA",
+                      "GNB",
+                      "GNQ",
+                      "MKD",
+                      "BHR",
+                      "EST",
+                      "TTO",
+                      "CYP",
+                      "MUS",
+                      "SWZ",
+                      "DJI",
+                      "FJI",
+                      "COM",
+                      "BTN",
+                      "GUY",
+                      "LUX",
+                      "MNE",
+                      "SLB",
+                      "SUR",
+                      "MLT",
+                      "MDV",
+                      "BLZ",
+                      "BHS",
+                      "ISL",
+                      "BRB",
+                      "VUT",
+                      "STP",
+                      "WSM",
+                      "LCA",
+                      "KIR",
+                      "GRD",
+                      "TON",
+                      "ATG",
+                      "SYC",
+                      "AND",
+                      "DMA",
+                      "CYM",
+                      "KNA",
+                      "MHL",
+                      "MCO",
+                      "LIE",
+                      "SMR",
+                      "PLW",
+                      "NRU",
+                      "TUV",
+                    ],
+                    marker: { line: { color: "rgb(50, 50, 50)", width: 0.5 } },
+                    reversescale: false,
+                    text: [
+                      "China",
+                      "India",
+                      "United States",
+                      "Indonesia",
+                      "Pakistan",
+                      "Nigeria",
+                      "Brazil",
+                      "Bangladesh",
+                      "Ethiopia",
+                      "Japan",
+                      "Mexico",
+                      "Egypt",
+                      "Philippines",
+                      "Vietnam",
+                      "Iran",
+                      "Germany",
+                      "France",
+                      "United Kingdom",
+                      "Thailand",
+                      "South Africa",
+                      "Italy",
+                      "Tanzania",
+                      "Myanmar",
+                      "Colombia",
+                      "South Korea",
+                      "Kenya",
+                      "Spain",
+                      "Argentina",
+                      "Uganda",
+                      "Algeria",
+                      "Afghanistan",
+                      "Ukraine",
+                      "Sudan",
+                      "Poland",
+                      "Iraq",
+                      "Canada",
+                      "Morocco",
+                      "Angola",
+                      "Uzbekistan",
+                      "Peru",
+                      "Saudi Arabia",
+                      "Ghana",
+                      "Malaysia",
+                      "Mozambique",
+                      "Nepal",
+                      "Venezuela",
+                      "Cameroon",
+                      "Yemen",
+                      "Australia",
+                      "North Korea",
+                      "Madagascar",
+                      "Syria",
+                      "Taiwan",
+                      "Burkina Faso",
+                      "Niger",
+                      "Sri Lanka",
+                      "Mali",
+                      "Kazakhstan",
+                      "Zambia",
+                      "Chile",
+                      "Chad",
+                      "Romania",
+                      "Malawi",
+                      "Netherlands",
+                      "Cambodia",
+                      "Guatemala",
+                      "Ecuador",
+                      "Senegal",
+                      "Zimbabwe",
+                      "Benin",
+                      "Burundi",
+                      "Rwanda",
+                      "Guinea",
+                      "South Sudan",
+                      "Bolivia",
+                      "Belgium",
+                      "Tunisia",
+                      "Somalia",
+                      "Cuba",
+                      "Haiti",
+                      "Czech Republic",
+                      "Dominican Republic",
+                      "Sweden",
+                      "Greece",
+                      "Jordan",
+                      "Portugal",
+                      "Azerbaijan",
+                      "Honduras",
+                      "Israel",
+                      "Hungary",
+                      "Tajikistan",
+                      "Belarus",
+                      "Austria",
+                      "Papua New Guinea",
+                      "Switzerland",
+                      "Togo",
+                      "Sierra Leone",
+                      "Laos",
+                      "Paraguay",
+                      "Bulgaria",
+                      "Kyrgyzstan",
+                      "Libya",
+                      "Nicaragua",
+                      "Serbia",
+                      "Congo",
+                      "Turkmenistan",
+                      "Lebanon",
+                      "El Salvador",
+                      "Singapore",
+                      "Denmark",
+                      "Finland",
+                      "Norway",
+                      "Slovakia",
+                      "Liberia",
+                      "Central African Republic",
+                      "Ireland",
+                      "New Zealand",
+                      "Costa Rica",
+                      "Oman",
+                      "Mauritania",
+                      "Kuwait",
+                      "Panama",
+                      "Croatia",
+                      "Georgia",
+                      "Eritrea",
+                      "Uruguay",
+                      "Mongolia",
+                      "Armenia",
+                      "Lithuania",
+                      "Albania",
+                      "Jamaica",
+                      "Gambia",
+                      "Qatar",
+                      "Moldova",
+                      "Namibia",
+                      "Botswana",
+                      "Slovenia",
+                      "Gabon",
+                      "Lesotho",
+                      "Latvia",
+                      "Guinea-Bissau",
+                      "Equatorial Guinea",
+                      "North Macedonia",
+                      "Bahrain",
+                      "Estonia",
+                      "Trinidad and Tobago",
+                      "Cyprus",
+                      "Mauritius",
+                      "Eswatini",
+                      "Djibouti",
+                      "Fiji",
+                      "Comoros",
+                      "Bhutan",
+                      "Guyana",
+                      "Luxembourg",
+                      "Montenegro",
+                      "Solomon Islands",
+                      "Suriname",
+                      "Malta",
+                      "Maldives",
+                      "Belize",
+                      "Bahamas",
+                      "Iceland",
+                      "Barbados",
+                      "Vanuatu",
+                      "Sao Tome and Principe",
+                      "Samoa",
+                      "Saint Lucia",
+                      "Kiribati",
+                      "Grenada",
+                      "Tonga",
+                      "Antigua and Barbuda",
+                      "Seychelles",
+                      "Andorra",
+                      "Dominica",
+                      "Cayman Islands",
+                      "Saint Kitts and Nevis",
+                      "Marshall Islands",
+                      "Monaco",
+                      "Liechtenstein",
+                      "San Marino",
+                      "Palau",
+                      "Nauru",
+                      "Tuvalu",
+                    ],
+                    z: {
+                      dtype: "f8",
+                      bdata:
+                        "AAAAAACAhEAAAAAAANB6QAAAAAAAhKNAAAAAAABQgkAAAAAAAGB4QAAAAAAACItAAAAAAABIhUAAAAAAAKB4QAAAAAAAwJBAAAAAAAC8kUAAAAAAAICLQAAAAAAA0HVAAAAAAACQgkAAAAAAAEiDQAAAAAAAoINAAAAAAAAEmUAAAAAAABiYQAAAAAAAIqFAAAAAAAAAikAAAAAAAOCMQAAAAAAATJZAAAAAAAAghkAAAAAAALCFQAAAAAAAqIdAAAAAAABwkUAAAAAAAGiFQAAAAAAA6JVAAAAAAAAYikAAAAAAAMCEQAAAAAAAsHpAAAAAAABwfEAAAAAAAHiCQAAAAAAAYIxAAAAAAAC0kkAAAAAAAOiHQAAAAAAA8J5AAAAAAAAghEAAAAAAAEiJQAAAAAAAiIRAAAAAAAAoiUAAAAAAAJiTQAAAAAAA8IJAAAAAAABghEAAAAAAAOiOQAAAAAAA8HZAAAAAAABgiUAAAAAAAGCKQAAAAAAAYIBAAAAAAACSoEAAAAAAAOyYQAAAAAAAQH1AAAAAAABQgEAAAAAAACiOQAAAAAAA0IlAAAAAAAB4j0AAAAAAAICBQAAAAAAAiIFAAAAAAACwhEAAAAAAAKiHQAAAAAAAuI5AAAAAAAAogEAAAAAAABCKQAAAAAAAKIFAAAAAAAAioEAAAAAAAJCIQAAAAAAA0IxAAAAAAABgiUAAAAAAAIiQQAAAAAAAgItAAAAAAABwhUAAAAAAAPCFQAAAAAAAMIZAAAAAAABAkEAAAAAAALB\u002fQAAAAAAA8IVAAAAAAADgl0AAAAAAADB9QAAAAAAAyIVAAAAAAACQkkAAAAAAAHiAQAAAAAAAPJNAAAAAAAAwiEAAAAAAABCYQAAAAAAARJFAAAAAAACAi0AAAAAAACiUQAAAAAAAaIZAAAAAAABQi0AAAAAAALSdQAAAAAAA2IxAAAAAAAD4gkAAAAAAAJCBQAAAAAAADJtAAAAAAAD4gEAAAAAAADymQAAAAAAA+IZAAAAAAACwlEAAAAAAAECSQAAAAAAAOIFAAAAAAADAiUAAAAAAAFiEQAAAAAAA0HpAAAAAAABohUAAAAAAACiOQAAAAAAA6IFAAAAAAABkmEAAAAAAAGyRQAAAAAAAOJFAAAAAAADap0AAAAAAAMCdQAAAAAAAxJdAAAAAAACInkAAAAAAAOiRQAAAAAAAQIBAAAAAAADQf0AAAAAAAKaiQAAAAAAAUJtAAAAAAAAck0AAAAAAAKiPQAAAAAAAEIVAAAAAAADElUAAAAAAAKyUQAAAAAAAbJJAAAAAAABYjEAAAAAAABCAQAAAAAAAvJJAAAAAAABQjEAAAAAAAESRQAAAAAAAdJFAAAAAAADoikAAAAAAAHySQAAAAAAAcIBAAAAAAADIm0AAAAAAAHCJQAAAAAAAwIlAAAAAAABAhEAAAAAAAEyUQAAAAAAAsIRAAAAAAACQgkAAAAAAADyQQAAAAAAA0IlAAAAAAAAIjUAAAAAAAFCFQAAAAAAAtJNAAAAAAACgk0AAAAAAAAiRQAAAAAAAhJdAAAAAAACIh0AAAAAAAEB+QAAAAAAAsIFAAAAAAAC4iUAAAAAAAECRQAAAAAAAcHpAAAAAAACEkEAAAAAAAGqiQAAAAAAAsI5AAAAAAAAIlkAAAAAAAHiLQAAAAAAADJdAAAAAAADclUAAAAAAAACPQAAAAAAAzKRAAAAAAAAYpkAAAAAAACiVQAAAAAAAUJ5AAAAAAAAgjEAAAAAAADiEQAAAAAAAPJJAAAAAAAAIgEAAAAAAAKSQQAAAAAAASI9AAAAAAAA4kEAAAAAAAFyXQAAAAAAA\u002fJhAAAAAAAAwkEAAAAAAAFStQAAAAAAAeJVAAAAAAABEl0AAAAAAAO25QAAAAAAA+KJAAAAAAADIkkAAAAAAAKCSQAAAAAAA6IRAAAAAAACghEA=",
+                    },
+                    zmax: 3000,
+                    zmin: 349.0,
+                    type: "choropleth",
+                  },
+                ],
+                {
+                  template: {
+                    data: {
+                      histogram2dcontour: [
+                        {
+                          type: "histogram2dcontour",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                          colorscale: [
+                            [0.0, "#0d0887"],
+                            [0.1111111111111111, "#46039f"],
+                            [0.2222222222222222, "#7201a8"],
+                            [0.3333333333333333, "#9c179e"],
+                            [0.4444444444444444, "#bd3786"],
+                            [0.5555555555555556, "#d8576b"],
+                            [0.6666666666666666, "#ed7953"],
+                            [0.7777777777777778, "#fb9f3a"],
+                            [0.8888888888888888, "#fdca26"],
+                            [1.0, "#f0f921"],
+                          ],
+                        },
+                      ],
+                      choropleth: [
+                        {
+                          type: "choropleth",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                        },
+                      ],
+                      histogram2d: [
+                        {
+                          type: "histogram2d",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                          colorscale: [
+                            [0.0, "#0d0887"],
+                            [0.1111111111111111, "#46039f"],
+                            [0.2222222222222222, "#7201a8"],
+                            [0.3333333333333333, "#9c179e"],
+                            [0.4444444444444444, "#bd3786"],
+                            [0.5555555555555556, "#d8576b"],
+                            [0.6666666666666666, "#ed7953"],
+                            [0.7777777777777778, "#fb9f3a"],
+                            [0.8888888888888888, "#fdca26"],
+                            [1.0, "#f0f921"],
+                          ],
+                        },
+                      ],
+                      heatmap: [
+                        {
+                          type: "heatmap",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                          colorscale: [
+                            [0.0, "#0d0887"],
+                            [0.1111111111111111, "#46039f"],
+                            [0.2222222222222222, "#7201a8"],
+                            [0.3333333333333333, "#9c179e"],
+                            [0.4444444444444444, "#bd3786"],
+                            [0.5555555555555556, "#d8576b"],
+                            [0.6666666666666666, "#ed7953"],
+                            [0.7777777777777778, "#fb9f3a"],
+                            [0.8888888888888888, "#fdca26"],
+                            [1.0, "#f0f921"],
+                          ],
+                        },
+                      ],
+                      contourcarpet: [
+                        {
+                          type: "contourcarpet",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                        },
+                      ],
+                      contour: [
+                        {
+                          type: "contour",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                          colorscale: [
+                            [0.0, "#0d0887"],
+                            [0.1111111111111111, "#46039f"],
+                            [0.2222222222222222, "#7201a8"],
+                            [0.3333333333333333, "#9c179e"],
+                            [0.4444444444444444, "#bd3786"],
+                            [0.5555555555555556, "#d8576b"],
+                            [0.6666666666666666, "#ed7953"],
+                            [0.7777777777777778, "#fb9f3a"],
+                            [0.8888888888888888, "#fdca26"],
+                            [1.0, "#f0f921"],
+                          ],
+                        },
+                      ],
+                      surface: [
+                        {
+                          type: "surface",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                          colorscale: [
+                            [0.0, "#0d0887"],
+                            [0.1111111111111111, "#46039f"],
+                            [0.2222222222222222, "#7201a8"],
+                            [0.3333333333333333, "#9c179e"],
+                            [0.4444444444444444, "#bd3786"],
+                            [0.5555555555555556, "#d8576b"],
+                            [0.6666666666666666, "#ed7953"],
+                            [0.7777777777777778, "#fb9f3a"],
+                            [0.8888888888888888, "#fdca26"],
+                            [1.0, "#f0f921"],
+                          ],
+                        },
+                      ],
+                      mesh3d: [
+                        {
+                          type: "mesh3d",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                        },
+                      ],
+                      scatter: [
+                        {
+                          fillpattern: {
+                            fillmode: "overlay",
+                            size: 10,
+                            solidity: 0.2,
+                          },
+                          type: "scatter",
+                        },
+                      ],
+                      parcoords: [
+                        {
+                          type: "parcoords",
+                          line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scatterpolargl: [
+                        {
+                          type: "scatterpolargl",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      bar: [
+                        {
+                          error_x: { color: "#2a3f5f" },
+                          error_y: { color: "#2a3f5f" },
+                          marker: {
+                            line: { color: "#E5ECF6", width: 0.5 },
+                            pattern: {
+                              fillmode: "overlay",
+                              size: 10,
+                              solidity: 0.2,
+                            },
+                          },
+                          type: "bar",
+                        },
+                      ],
+                      scattergeo: [
+                        {
+                          type: "scattergeo",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scatterpolar: [
+                        {
+                          type: "scatterpolar",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      histogram: [
+                        {
+                          marker: {
+                            pattern: {
+                              fillmode: "overlay",
+                              size: 10,
+                              solidity: 0.2,
+                            },
+                          },
+                          type: "histogram",
+                        },
+                      ],
+                      scattergl: [
+                        {
+                          type: "scattergl",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scatter3d: [
+                        {
+                          type: "scatter3d",
+                          line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scattermap: [
+                        {
+                          type: "scattermap",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scattermapbox: [
+                        {
+                          type: "scattermapbox",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scatterternary: [
+                        {
+                          type: "scatterternary",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scattercarpet: [
+                        {
+                          type: "scattercarpet",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      carpet: [
+                        {
+                          aaxis: {
+                            endlinecolor: "#2a3f5f",
+                            gridcolor: "white",
+                            linecolor: "white",
+                            minorgridcolor: "white",
+                            startlinecolor: "#2a3f5f",
+                          },
+                          baxis: {
+                            endlinecolor: "#2a3f5f",
+                            gridcolor: "white",
+                            linecolor: "white",
+                            minorgridcolor: "white",
+                            startlinecolor: "#2a3f5f",
+                          },
+                          type: "carpet",
+                        },
+                      ],
+                      table: [
+                        {
+                          cells: {
+                            fill: { color: "#EBF0F8" },
+                            line: { color: "white" },
+                          },
+                          header: {
+                            fill: { color: "#C8D4E3" },
+                            line: { color: "white" },
+                          },
+                          type: "table",
+                        },
+                      ],
+                      barpolar: [
+                        {
+                          marker: {
+                            line: { color: "#E5ECF6", width: 0.5 },
+                            pattern: {
+                              fillmode: "overlay",
+                              size: 10,
+                              solidity: 0.2,
+                            },
+                          },
+                          type: "barpolar",
+                        },
+                      ],
+                      pie: [{ automargin: true, type: "pie" }],
+                    },
+                    layout: {
+                      autotypenumbers: "strict",
+                      colorway: [
+                        "#636efa",
+                        "#EF553B",
+                        "#00cc96",
+                        "#ab63fa",
+                        "#FFA15A",
+                        "#19d3f3",
+                        "#FF6692",
+                        "#B6E880",
+                        "#FF97FF",
+                        "#FECB52",
+                      ],
+                      font: { color: "#2a3f5f" },
+                      hovermode: "closest",
+                      hoverlabel: { align: "left" },
+                      paper_bgcolor: "white",
+                      plot_bgcolor: "#E5ECF6",
+                      polar: {
+                        bgcolor: "#E5ECF6",
+                        angularaxis: {
+                          gridcolor: "white",
+                          linecolor: "white",
+                          ticks: "",
+                        },
+                        radialaxis: {
+                          gridcolor: "white",
+                          linecolor: "white",
+                          ticks: "",
+                        },
+                      },
+                      ternary: {
+                        bgcolor: "#E5ECF6",
+                        aaxis: {
+                          gridcolor: "white",
+                          linecolor: "white",
+                          ticks: "",
+                        },
+                        baxis: {
+                          gridcolor: "white",
+                          linecolor: "white",
+                          ticks: "",
+                        },
+                        caxis: {
+                          gridcolor: "white",
+                          linecolor: "white",
+                          ticks: "",
+                        },
+                      },
+                      coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      colorscale: {
+                        sequential: [
+                          [0.0, "#0d0887"],
+                          [0.1111111111111111, "#46039f"],
+                          [0.2222222222222222, "#7201a8"],
+                          [0.3333333333333333, "#9c179e"],
+                          [0.4444444444444444, "#bd3786"],
+                          [0.5555555555555556, "#d8576b"],
+                          [0.6666666666666666, "#ed7953"],
+                          [0.7777777777777778, "#fb9f3a"],
+                          [0.8888888888888888, "#fdca26"],
+                          [1.0, "#f0f921"],
+                        ],
+                        sequentialminus: [
+                          [0.0, "#0d0887"],
+                          [0.1111111111111111, "#46039f"],
+                          [0.2222222222222222, "#7201a8"],
+                          [0.3333333333333333, "#9c179e"],
+                          [0.4444444444444444, "#bd3786"],
+                          [0.5555555555555556, "#d8576b"],
+                          [0.6666666666666666, "#ed7953"],
+                          [0.7777777777777778, "#fb9f3a"],
+                          [0.8888888888888888, "#fdca26"],
+                          [1.0, "#f0f921"],
+                        ],
+                        diverging: [
+                          [0, "#8e0152"],
+                          [0.1, "#c51b7d"],
+                          [0.2, "#de77ae"],
+                          [0.3, "#f1b6da"],
+                          [0.4, "#fde0ef"],
+                          [0.5, "#f7f7f7"],
+                          [0.6, "#e6f5d0"],
+                          [0.7, "#b8e186"],
+                          [0.8, "#7fbc41"],
+                          [0.9, "#4d9221"],
+                          [1, "#276419"],
+                        ],
+                      },
+                      xaxis: {
+                        gridcolor: "white",
+                        linecolor: "white",
+                        ticks: "",
+                        title: { standoff: 15 },
+                        zerolinecolor: "white",
+                        automargin: true,
+                        zerolinewidth: 2,
+                      },
+                      yaxis: {
+                        gridcolor: "white",
+                        linecolor: "white",
+                        ticks: "",
+                        title: { standoff: 15 },
+                        zerolinecolor: "white",
+                        automargin: true,
+                        zerolinewidth: 2,
+                      },
+                      scene: {
+                        xaxis: {
+                          backgroundcolor: "#E5ECF6",
+                          gridcolor: "white",
+                          linecolor: "white",
+                          showbackground: true,
+                          ticks: "",
+                          zerolinecolor: "white",
+                          gridwidth: 2,
+                        },
+                        yaxis: {
+                          backgroundcolor: "#E5ECF6",
+                          gridcolor: "white",
+                          linecolor: "white",
+                          showbackground: true,
+                          ticks: "",
+                          zerolinecolor: "white",
+                          gridwidth: 2,
+                        },
+                        zaxis: {
+                          backgroundcolor: "#E5ECF6",
+                          gridcolor: "white",
+                          linecolor: "white",
+                          showbackground: true,
+                          ticks: "",
+                          zerolinecolor: "white",
+                          gridwidth: 2,
+                        },
+                      },
+                      shapedefaults: { line: { color: "#2a3f5f" } },
+                      annotationdefaults: {
+                        arrowcolor: "#2a3f5f",
+                        arrowhead: 0,
+                        arrowwidth: 1,
+                      },
+                      geo: {
+                        bgcolor: "white",
+                        landcolor: "#E5ECF6",
+                        subunitcolor: "white",
+                        showland: true,
+                        showlakes: true,
+                        lakecolor: "white",
+                      },
+                      title: { x: 0.05 },
+                      mapbox: { style: "light" },
+                    },
+                  },
+                  geo: {
+                    projection: { type: "natural earth" },
+                    showframe: false,
+                    showcoastlines: true,
+                    landcolor: "rgb(220, 220, 220)",
+                    showcountries: true,
+                    countrycolor: "rgb(80, 80, 80)",
+                    countrywidth: 0.5,
+                  },
+                  title: { text: "Global Cost of Living Map (2025)" },
+                  margin: { r: 0, t: 50, l: 0, b: 0 },
+                  font: { size: 14 },
+                  height: 400,
+                },
+                { responsive: true }
+              );
+            }
+          </script>
+        </div>
+        <p class="content__description">
+          Where Life Is (or Isn’t) Affordable For those of you working fully
+          remotely, comparing salaries to local costs may not matter as much.
+          That’s why I’ve prepared a special view just for you — an interactive
+          world map showing the most and least expensive places to live globally
+          (in USD). Hover over any country to see the average cost of living in
+          that location. Cool blue tones represent more affordable destinations
+          Warm orange and red shades highlight the most expensive ones Take your
+          time to explore and see which destinations might catch your interest —
+          and stay with me, because in a moment I’ll walk you through a few more
+          fascinating insights this data has to offer.
+        </p>
+      </section>
+      <section class="app__section content-inflation">
+        <h2 class="content__subtitle">
+          <span class="header__marked-bg">An important aspect: </span> Inflation
+        </h2>
+        <div class="content-inflation__charts">
+          <div class="content-inflation__chart-container">
+            <h3 class="content-inflation__title-left"></h3>
+            <div class="content-inflation__chart-left"></div>
+          </div>
+          <div class="content-inflation__chart-container">
+            <h3 class="content-inflation__title-right"></h3>
+            <div class="content-inflation__chart-right"></div>
+          </div>
+        </div>
+
+        <p class="content__description">
+          How quickly prices for goods and services are rising? Below, you'll
+          find a set of interactive charts that explore this further. We’ve
+          included inflation trends and contributing factors (like energy
+          prices, food, housing, and transport) for: The 10 countries with the
+          lowest cost-of-living-to-salary ratios And the 10 countries where
+          living expenses consume the largest share of average income You can
+          either view stacked, overlapping charts for a dynamic comparison — or
+          use a simple dropdown search to select the country you're interested
+          in. 🟦 On the left, you’ll first see Belgium — where people enjoy one
+          of the most favorable income-to-expense ratios. 🟥 On the right,
+          you’ll see Tajikistan, where living costs often far exceed average
+          earnings.
+        </p>
+        <p class="content__description">
+          Take a closer look at the inflation curves, especially around
+          2020–2021, and you’ll likely notice a common spike. That’s no
+          coincidence — the COVID-19 pandemic, which hit globally during those
+          years, contributed significantly to rising inflation in many regions.
+          This is clearly visible in the data. Explore, compare, and reflect —
+          because understanding inflation helps you see not just how much life
+          costs, but how quickly those costs can change.
+        </p>
+      </section>
+      <section class="app__section content-security">
+        <h2 class="content__subtitle">
+          <span class="header__marked-bg">What about security</span> in various
+          countries?
+        </h2>
+        <div class="content-security__charts">
+          <div class="content-security__chart-left">
+            <img
+              src="/assets/plots/security/top.png"
+              class="content-security__chart-image"
+              alt="Safety Index Chart"
+            />
+          </div>
+          <div class="content-security__chart-right">
+            <img
+              src="/assets/plots/security/bottom.png"
+              class="content-security__chart-image"
+              alt="Safety Index Chart"
+            />
+          </div>
+        </div>
+        <p class="content__description">
+          As seen in the comparison of countries included in this analysis,
+          Luxembourg, Iceland, and the Netherlands have the highest safety
+          ratings. On the other hand, Ukraine currently has the lowest safety
+          rating, which is undoubtedly related to the ongoing conflict with
+          Russia. (Data source:
+          <a href="http://theglobaleconomy.com">http://theglobaleconomy.com/</a
+          >) So, can we conclude that Luxembourg, Iceland, and the Netherlands
+          are indeed some of the best places to live in today’s world? After
+          all, safety is a fundamental need for all of us. Let’s take this
+          further by comparing these findings with a somewhat less obvious
+          measure — the happiness index. (Data source:
+          <a href="https://worldhappiness.report/"> World Happines Report </a>)
+        </p>
+      </section>
+      <section class="app__section content__happiness">
+        <h2 class="content__subtitle">
+          <span class="header__marked-bg"> Which country</span> have the
+          happiest citizens?
+        </h2>
+        <div class="content-happiness__map">
+          <script type="text/javascript">
+            window.PlotlyConfig = { MathJaxConfig: "local" };
+          </script>
+          <script
+            charset="utf-8"
+            src="https://cdn.plot.ly/plotly-3.0.1.min.js"
+          ></script>
+          <div
+            id="b72c726c-3e95-4ad8-a984-aefab79c7310"
+            class="plotly-graph-div"
+            style="height: 100%; width: 100%"
+          ></div>
+          <script type="text/javascript">
+            window.PLOTLYENV = window.PLOTLYENV || {};
+            if (
+              document.getElementById("b72c726c-3e95-4ad8-a984-aefab79c7310")
+            ) {
+              Plotly.newPlot(
+                "b72c726c-3e95-4ad8-a984-aefab79c7310",
+                [
+                  {
+                    coloraxis: "coloraxis",
+                    customdata: [
+                      ["Finland", 7.736, 5.748850949672202, 1.749],
+                      ["Denmark", 7.521, 6.202795019104865, 1.825],
+                      ["Iceland", 7.515, 6.043600840764243, 1.799],
+                      ["Sweden", 7.345, 5.947672698905182, 1.783],
+                      ["Netherlands", 7.306, 6.184214518733481, 1.822],
+                      ["Costa Rica", 7.274, 4.445978590151796, 1.492],
+                      ["Norway", 7.262, 6.699279611871697, 1.902],
+                      ["Israel", 7.234, 5.446645965212798, 1.695],
+                      ["Luxembourg", 7.122, 7.598873404088091, 2.028],
+                      ["Mexico", 6.979, 4.1996450087879245, 1.435],
+                      ["Australia", 6.974, 5.8532671937395415, 1.767],
+                      ["New Zealand", 6.952, 5.46301043754358, 1.698],
+                      ["Switzerland", 6.935, 6.488296399286712, 1.87],
+                      ["Belgium", 6.91, 5.947672698905182, 1.783],
+                      ["Ireland", 6.889, 7.300917316103302, 1.988],
+                      ["Lithuania", 6.829, 5.387061176744107, 1.684],
+                      ["Austria", 6.81, 5.995444914574221, 1.791],
+                      ["Canada", 6.803, 5.748850949672202, 1.749],
+                      ["Slovenia", 6.792, 5.430330512732468, 1.692],
+                      ["Czechia", 6.775, 5.430330512732468, 1.692],
+                      ["United Arab Emirates", 6.759, 6.122680556141274, 1.812],
+                      ["Germany", 6.753, 5.959579947582587, 1.785],
+                      ["United Kingdom", 6.728, 5.612521029693157, 1.725],
+                      ["United States", 6.724, 6.2902448699855995, 1.839],
+                      ["Belize", 6.711, 3.5113479672208983, 1.256],
+                      ["Poland", 6.673, 5.290961566728314, 1.666],
+                      [
+                        "Taiwan Province of China",
+                        6.669,
+                        5.6406539084283205,
+                        1.73,
+                      ],
+                      ["Uruguay", 6.661, 4.730353805388543, 1.554],
+                      ["Kosovo", 6.659, 3.600238164214303, 1.281],
+                      ["Kuwait", 6.629, 5.424902896480163, 1.691],
+                      ["Serbia", 6.606, 4.43266064129309, 1.489],
+                      ["Saudi Arabia", 6.6, 5.7144611166426955, 1.743],
+                      ["France", 6.593, 5.657601278498185, 1.733],
+                      ["Singapore", 6.565, 7.553416670235239, 2.022],
+                      ["Romania", 6.563, 5.134590020608309, 1.636],
+                      ["Brazil", 6.494, 4.018866911141532, 1.391],
+                      ["El Salvador", 6.492, 3.393968887982554, 1.222],
+                      ["Spain", 6.466, 5.419480705131206, 1.69],
+                      ["Estonia", 6.417, 5.206979827179849, 1.65],
+                      ["Italy", 6.415, 5.606911313988792, 1.724],
+                      ["Panama", 6.407, 4.923403206390359, 1.594],
+                      ["Argentina", 6.397, 4.4996517279845065, 1.504],
+                      ["Kazakhstan", 6.378, 4.8841731103503525, 1.586],
+                      ["Guatemala", 6.362, 3.48685435909428, 1.249],
+                      ["Chile", 6.361, 4.650617469856458, 1.537],
+                      ["Viet Nam", 6.352, 3.5894536346044714, 1.278],
+                      ["Nicaragua", 6.33, 2.9564818581475447, 1.084],
+                      ["Malta", 6.316, 5.812437394402589, 1.76],
+                      ["Thailand", 6.222, 4.162017780220834, 1.426],
+                      ["Slovakia", 6.221, 5.098773394905115, 1.629],
+                      ["Latvia", 6.207, 5.0480397519504905, 1.619],
+                      ["Oman", 6.197, 4.967913832619582, 1.603],
+                      ["Uzbekistan", 6.193, 3.2511214553316226, 1.179],
+                      ["Paraguay", 6.172, 3.7772642340728892, 1.329],
+                      ["Japan", 6.147, 5.354835583141174, 1.678],
+                      [
+                        "Bosnia and Herzegovina",
+                        6.136,
+                        4.0755267412675265,
+                        1.405,
+                      ],
+                      ["Philippines", 6.107, 3.244625710331208, 1.177],
+                      ["Republic of Korea", 6.038, 5.523435279705856, 1.709],
+                      ["Bahrain", 6.03, 5.766123398239736, 1.752],
+                      ["Portugal", 6.013, 5.186193508224125, 1.646],
+                      ["Colombia", 6.004, 3.9749016274947477, 1.38],
+                      ["Ecuador", 5.965, 3.665629204988562, 1.299],
+                      ["Honduras", 5.964, 2.8179227498821073, 1.036],
+                      ["Malaysia", 5.955, 4.811457246094358, 1.571],
+                      ["Peru", 5.947, 3.7546685036468803, 1.323],
+                      ["Russian Federation", 5.945, 5.1038747185367255, 1.63],
+                      ["Cyprus", 5.942, 5.584528464276054, 1.72],
+                      ["China", 5.921, 4.241852142820435, 1.445],
+                      ["Hungary", 5.915, 5.144869476679112, 1.638],
+                      ["Trinidad and Tobago", 5.905, 4.706761067358193, 1.549],
+                      ["Montenegro", 5.877, 4.513170951864863, 1.507],
+                      ["Croatia", 5.87, 5.175831486683224, 1.644],
+                      ["Jamaica", 5.87, 3.260889464385192, 1.182],
+                      ["Bolivia", 5.868, 3.2316731299208064, 1.173],
+                      ["Kyrgyzstan", 5.858, 2.8066735722367695, 1.032],
+                      ["Dominican Republic", 5.846, 4.293061007215754, 1.457],
+                      ["Mongolia", 5.833, 3.8037978429971533, 1.336],
+                      ["Mauritius", 5.832, 4.477209621365501, 1.499],
+                      ["Libya", 5.82, 3.4798876194379944, 1.247],
+                      ["Republic of Moldova", 5.819, 3.7886130414746066, 1.332],
+                      ["Greece", 5.776, 4.992815604333296, 1.608],
+                      ["Venezuela", 5.683, 1.0, 0.0],
+                      ["Indonesia", 5.617, 3.6255282433731204, 1.288],
+                      ["Algeria", 5.571, 3.724750985251216, 1.315],
+                      ["Bulgaria", 5.554, 4.821089789919524, 1.573],
+                      ["North Macedonia", 5.503, 4.297356215469162, 1.458],
+                      ["Armenia", 5.494, 4.018866911141532, 1.391],
+                      [
+                        "Hong Kong SAR of China",
+                        5.491,
+                        5.9894524663831135,
+                        1.79,
+                      ],
+                      ["Albania", 5.411, 3.939288014497347, 1.371],
+                      ["Tajikistan", 5.411, 2.494279724624584, 0.914],
+                      ["Georgia", 5.4, 4.237612410896887, 1.444],
+                      ["Nepal", 5.311, 2.570241851187732, 0.944],
+                      ["Lao PDR", 5.301, 3.070990045496511, 1.122],
+                      ["T\u00fcrkiye", 5.262, 4.864675439248043, 1.582],
+                      ["South Africa", 5.213, 3.6074458458217786, 1.283],
+                      ["Mozambique", 5.19, 1.7489227028403493, 0.559],
+                      ["Gabon", 5.12, 3.998822728800372, 1.386],
+                      [
+                        "C\u00f4te d\u2019Ivoire",
+                        5.102,
+                        2.823564234986481,
+                        1.038,
+                      ],
+                      ["Iran", 5.093, 3.781043387568781, 1.33],
+                      ["Congo", 5.03, 2.78152684012137, 1.023],
+                      ["Iraq", 4.976, 3.528948672151208, 1.261],
+                      ["Guinea", 4.929, 2.3940823379328497, 0.873],
+                      ["Namibia", 4.911, 3.260889464385192, 1.182],
+                      ["Cameroon", 4.887, 2.570241851187732, 0.944],
+                      ["Nigeria", 4.885, 2.688544583045722, 0.989],
+                      ["Azerbaijan", 4.875, 4.170350145368969, 1.428],
+                      ["Senegal", 4.856, 2.4768807340649905, 0.907],
+                      ["State of Palestine", 4.78, 2.849091011289214, 1.047],
+                      ["Pakistan", 4.768, 2.669790486880145, 0.982],
+                      ["Niger", 4.725, 1.8330843770260485, 0.606],
+                      ["Ukraine", 4.68, 3.773488857841547, 1.328],
+                      ["Morocco", 4.622, 3.1236431596841543, 1.139],
+                      ["Tunisia", 4.552, 3.514861071447473, 1.257],
+                      ["Mauritania", 4.542, 2.78152684012137, 1.023],
+                      ["Kenya", 4.51, 2.7020209688496686, 0.994],
+                      ["Uganda", 4.461, 2.142557052342714, 0.762],
+                      ["Gambia", 4.423, 2.1771136810045597, 0.778],
+                      ["India", 4.389, 3.155036295350299, 1.149],
+                      ["Chad", 4.384, 1.8076000026120045, 0.592],
+                      ["Burkina Faso", 4.383, 2.062667400888034, 0.724],
+                      ["Benin", 4.357, 2.351374380574902, 0.855],
+                      ["Somalia", 4.347, 1.7074482422542117, 0.535],
+                      ["Mali", 4.345, 2.031958284044819, 0.709],
+                      ["Cambodia", 4.341, 2.8547948952945035, 1.049],
+                      ["Ghana", 4.34, 2.8662369437164648, 1.053],
+                      ["Myanmar", 4.321, 2.6511672109826065, 0.975],
+                      ["Togo", 4.315, 2.1318710044632896, 0.757],
+                      ["Jordan", 4.31, 3.1835597851793858, 1.158],
+                      ["Liberia", 4.277, 1.7896140820710107, 0.582],
+                      ["Madagascar", 4.157, 1.8003840441397763, 0.588],
+                      ["Zambia", 3.912, 2.3349722343978727, 0.848],
+                      ["Ethiopia", 3.898, 2.1318710044632896, 0.757],
+                      ["Sri Lanka", 3.891, 3.5644151959377806, 1.271],
+                      ["Bangladesh", 3.851, 3.052619272654344, 1.116],
+                      ["Egypt", 3.817, 3.8458705951743677, 1.347],
+                      ["Tanzania", 3.8, 2.3326384292605273, 0.847],
+                      ["Eswatini", 3.774, 3.2641519848379272, 1.183],
+                      ["Lesotho", 3.757, 2.0896571302360565, 0.737],
+                      ["Comoros", 3.754, 2.3048140482870125, 0.835],
+                      ["Yemen", 3.561, 1.8794891289619104, 0.631],
+                      ["DR Congo", 3.469, 1.7228846360108874, 0.544],
+                      ["Botswana", 3.438, 4.006828377237861, 1.388],
+                      ["Zimbabwe", 3.396, 2.2864490936655226, 0.827],
+                      ["Malawi", 3.26, 1.8003840441397763, 0.588],
+                      ["Lebanon", 3.188, 3.3973645544207836, 1.223],
+                      ["Sierra Leone", 2.998, 2.194600444242912, 0.786],
+                      ["Afghanistan", 1.364, 1.9136262456361197, 0.649],
+                    ],
+                    geo: "geo",
+                    hovertemplate:
+                      "Country name=%{customdata[0]}\u003cbr\u003eLadder score=%{z:.2f}\u003cbr\u003eGDP per capita (approx)=%{customdata[2]:.0f}\u003cextra\u003e\u003c\u002fextra\u003e",
+                    locationmode: "country names",
+                    locations: [
+                      "Finland",
+                      "Denmark",
+                      "Iceland",
+                      "Sweden",
+                      "Netherlands",
+                      "Costa Rica",
+                      "Norway",
+                      "Israel",
+                      "Luxembourg",
+                      "Mexico",
+                      "Australia",
+                      "New Zealand",
+                      "Switzerland",
+                      "Belgium",
+                      "Ireland",
+                      "Lithuania",
+                      "Austria",
+                      "Canada",
+                      "Slovenia",
+                      "Czechia",
+                      "United Arab Emirates",
+                      "Germany",
+                      "United Kingdom",
+                      "United States",
+                      "Belize",
+                      "Poland",
+                      "Taiwan Province of China",
+                      "Uruguay",
+                      "Kosovo",
+                      "Kuwait",
+                      "Serbia",
+                      "Saudi Arabia",
+                      "France",
+                      "Singapore",
+                      "Romania",
+                      "Brazil",
+                      "El Salvador",
+                      "Spain",
+                      "Estonia",
+                      "Italy",
+                      "Panama",
+                      "Argentina",
+                      "Kazakhstan",
+                      "Guatemala",
+                      "Chile",
+                      "Viet Nam",
+                      "Nicaragua",
+                      "Malta",
+                      "Thailand",
+                      "Slovakia",
+                      "Latvia",
+                      "Oman",
+                      "Uzbekistan",
+                      "Paraguay",
+                      "Japan",
+                      "Bosnia and Herzegovina",
+                      "Philippines",
+                      "Republic of Korea",
+                      "Bahrain",
+                      "Portugal",
+                      "Colombia",
+                      "Ecuador",
+                      "Honduras",
+                      "Malaysia",
+                      "Peru",
+                      "Russian Federation",
+                      "Cyprus",
+                      "China",
+                      "Hungary",
+                      "Trinidad and Tobago",
+                      "Montenegro",
+                      "Croatia",
+                      "Jamaica",
+                      "Bolivia",
+                      "Kyrgyzstan",
+                      "Dominican Republic",
+                      "Mongolia",
+                      "Mauritius",
+                      "Libya",
+                      "Republic of Moldova",
+                      "Greece",
+                      "Venezuela",
+                      "Indonesia",
+                      "Algeria",
+                      "Bulgaria",
+                      "North Macedonia",
+                      "Armenia",
+                      "Hong Kong SAR of China",
+                      "Albania",
+                      "Tajikistan",
+                      "Georgia",
+                      "Nepal",
+                      "Lao PDR",
+                      "T\u00fcrkiye",
+                      "South Africa",
+                      "Mozambique",
+                      "Gabon",
+                      "C\u00f4te d\u2019Ivoire",
+                      "Iran",
+                      "Congo",
+                      "Iraq",
+                      "Guinea",
+                      "Namibia",
+                      "Cameroon",
+                      "Nigeria",
+                      "Azerbaijan",
+                      "Senegal",
+                      "State of Palestine",
+                      "Pakistan",
+                      "Niger",
+                      "Ukraine",
+                      "Morocco",
+                      "Tunisia",
+                      "Mauritania",
+                      "Kenya",
+                      "Uganda",
+                      "Gambia",
+                      "India",
+                      "Chad",
+                      "Burkina Faso",
+                      "Benin",
+                      "Somalia",
+                      "Mali",
+                      "Cambodia",
+                      "Ghana",
+                      "Myanmar",
+                      "Togo",
+                      "Jordan",
+                      "Liberia",
+                      "Madagascar",
+                      "Zambia",
+                      "Ethiopia",
+                      "Sri Lanka",
+                      "Bangladesh",
+                      "Egypt",
+                      "Tanzania",
+                      "Eswatini",
+                      "Lesotho",
+                      "Comoros",
+                      "Yemen",
+                      "DR Congo",
+                      "Botswana",
+                      "Zimbabwe",
+                      "Malawi",
+                      "Lebanon",
+                      "Sierra Leone",
+                      "Afghanistan",
+                    ],
+                    name: "",
+                    z: {
+                      dtype: "f8",
+                      bdata:
+                        "i2zn+6nxHkAv3SQGgRUeQI\u002fC9ShcDx5A4XoUrkdhHUDTTWIQWDkdQH9qvHSTGB1APzVeukkMHUBWDi2yne8cQLByaJHtfBxA0SLb+X7qG0BMN4lBYOUbQAIrhxbZzhtAPQrXo3C9G0CkcD0K16MbQHWTGARWjhtAN4lBYOVQG0A9CtejcD0bQIPAyqFFNhtAXrpJDAIrG0CamZmZmRkbQPCnxks3CRtAUI2XbhIDG0C28\u002f3UeOkaQEw3iUFg5RpA8tJNYhDYGkD+1HjpJrEaQJMYBFYOrRpAvp8aL92kGkCJQWDl0KIaQGq8dJMYhBpABoGVQ4tsGkBmZmZmZmYaQKwcWmQ7XxpAw\u002fUoXI9CGkCNl24Sg0AaQGDl0CLb+RlAK4cW2c73GUB3vp8aL90ZQF66SQwCqxlAKVyPwvWoGUBU46WbxKAZQEoMAiuHlhlAUI2XbhKDGUCmm8QgsHIZQIts5\u002fupcRlAnMQgsHJoGUBSuB6F61EZQN0kBoGVQxlAF9nO91PjGED8qfHSTeIYQIcW2c730xhAfT81XrrJGEASg8DKocUYQOOlm8QgsBhASgwCK4eWGEAlBoGVQ4sYQCGwcmiRbRhA9P3UeOkmGEAfhetRuB4YQFpkO99PDRhAarx0kxgEGEBcj8L1KNwXQEJg5dAi2xdAUrgehevRF0B9PzVeuskXQEjhehSuxxdA+FPjpZvEF0DJdr6fGq8XQClcj8L1qBdAH4XrUbieF0A1XrpJDIIXQHsUrkfhehdAexSuR+F6F0BGtvP91HgXQDvfT42XbhdA\u002fKnx0k1iF0CiRbbz\u002fVQXQIcW2c73UxdASOF6FK5HF0Atsp3vp0YXQLTIdr6fGhdACKwcWmS7FkArhxbZzncWQGIQWDm0SBZAnu+nxks3FkBQjZduEgMWQGDl0CLb+RVAEFg5tMj2FUC+nxov3aQVQL6fGi\u002fdpBVAmpmZmZmZFUBYObTIdj4VQE5iEFg5NBVAPzVeukkMFUAnMQisHNoUQMP1KFyPwhRAexSuR+F6FECcxCCwcmgUQKwcWmQ7XxRAH4XrUbgeFECBlUOLbOcTQJ7vp8ZLtxNAvp8aL92kE0A\u002fNV66SYwTQArXo3A9ihNAAAAAAACAE0AGgZVDi2wTQB+F61G4HhNA30+Nl24SE0BmZmZmZuYSQLgehetRuBJAsHJoke18EkBoke18PzUSQF66SQwCKxJACtejcD0KEkDy0k1iENgRQP7UeOkmsRFAdZMYBFaOEUDwp8ZLN4kRQNV46SYxiBFAIbByaJFtEUAX2c73U2MRQOF6FK5HYRFAd76fGi9dEUBcj8L1KFwRQGIQWDm0SBFAw\u002fUoXI9CEUA9CtejcD0RQM\u002f3U+OlGxFAVOOlm8SgEECyne+nxksPQMl2vp8aLw9AVOOlm8QgD0ACK4cW2c4OQPCnxks3iQ5AZmZmZmZmDkD+1HjpJjEOQHWTGARWDg5A1XjpJjEIDkCwcmiR7XwMQI2XbhKDwAtAGy\u002fdJAaBC0BeukkMAisLQBSuR+F6FApAGy\u002fdJAaBCUCWQ4ts5\u002fsHQG3n+6nx0vU\u002f",
+                    },
+                    type: "choropleth",
+                  },
+                ],
+                {
+                  template: {
+                    data: {
+                      histogram2dcontour: [
+                        {
+                          type: "histogram2dcontour",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                          colorscale: [
+                            [0.0, "#0d0887"],
+                            [0.1111111111111111, "#46039f"],
+                            [0.2222222222222222, "#7201a8"],
+                            [0.3333333333333333, "#9c179e"],
+                            [0.4444444444444444, "#bd3786"],
+                            [0.5555555555555556, "#d8576b"],
+                            [0.6666666666666666, "#ed7953"],
+                            [0.7777777777777778, "#fb9f3a"],
+                            [0.8888888888888888, "#fdca26"],
+                            [1.0, "#f0f921"],
+                          ],
+                        },
+                      ],
+                      choropleth: [
+                        {
+                          type: "choropleth",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                        },
+                      ],
+                      histogram2d: [
+                        {
+                          type: "histogram2d",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                          colorscale: [
+                            [0.0, "#0d0887"],
+                            [0.1111111111111111, "#46039f"],
+                            [0.2222222222222222, "#7201a8"],
+                            [0.3333333333333333, "#9c179e"],
+                            [0.4444444444444444, "#bd3786"],
+                            [0.5555555555555556, "#d8576b"],
+                            [0.6666666666666666, "#ed7953"],
+                            [0.7777777777777778, "#fb9f3a"],
+                            [0.8888888888888888, "#fdca26"],
+                            [1.0, "#f0f921"],
+                          ],
+                        },
+                      ],
+                      heatmap: [
+                        {
+                          type: "heatmap",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                          colorscale: [
+                            [0.0, "#0d0887"],
+                            [0.1111111111111111, "#46039f"],
+                            [0.2222222222222222, "#7201a8"],
+                            [0.3333333333333333, "#9c179e"],
+                            [0.4444444444444444, "#bd3786"],
+                            [0.5555555555555556, "#d8576b"],
+                            [0.6666666666666666, "#ed7953"],
+                            [0.7777777777777778, "#fb9f3a"],
+                            [0.8888888888888888, "#fdca26"],
+                            [1.0, "#f0f921"],
+                          ],
+                        },
+                      ],
+                      contourcarpet: [
+                        {
+                          type: "contourcarpet",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                        },
+                      ],
+                      contour: [
+                        {
+                          type: "contour",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                          colorscale: [
+                            [0.0, "#0d0887"],
+                            [0.1111111111111111, "#46039f"],
+                            [0.2222222222222222, "#7201a8"],
+                            [0.3333333333333333, "#9c179e"],
+                            [0.4444444444444444, "#bd3786"],
+                            [0.5555555555555556, "#d8576b"],
+                            [0.6666666666666666, "#ed7953"],
+                            [0.7777777777777778, "#fb9f3a"],
+                            [0.8888888888888888, "#fdca26"],
+                            [1.0, "#f0f921"],
+                          ],
+                        },
+                      ],
+                      surface: [
+                        {
+                          type: "surface",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                          colorscale: [
+                            [0.0, "#0d0887"],
+                            [0.1111111111111111, "#46039f"],
+                            [0.2222222222222222, "#7201a8"],
+                            [0.3333333333333333, "#9c179e"],
+                            [0.4444444444444444, "#bd3786"],
+                            [0.5555555555555556, "#d8576b"],
+                            [0.6666666666666666, "#ed7953"],
+                            [0.7777777777777778, "#fb9f3a"],
+                            [0.8888888888888888, "#fdca26"],
+                            [1.0, "#f0f921"],
+                          ],
+                        },
+                      ],
+                      mesh3d: [
+                        {
+                          type: "mesh3d",
+                          colorbar: { outlinewidth: 0, ticks: "" },
+                        },
+                      ],
+                      scatter: [
+                        {
+                          fillpattern: {
+                            fillmode: "overlay",
+                            size: 10,
+                            solidity: 0.2,
+                          },
+                          type: "scatter",
+                        },
+                      ],
+                      parcoords: [
+                        {
+                          type: "parcoords",
+                          line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scatterpolargl: [
+                        {
+                          type: "scatterpolargl",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      bar: [
+                        {
+                          error_x: { color: "#2a3f5f" },
+                          error_y: { color: "#2a3f5f" },
+                          marker: {
+                            line: { color: "#E5ECF6", width: 0.5 },
+                            pattern: {
+                              fillmode: "overlay",
+                              size: 10,
+                              solidity: 0.2,
+                            },
+                          },
+                          type: "bar",
+                        },
+                      ],
+                      scattergeo: [
+                        {
+                          type: "scattergeo",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scatterpolar: [
+                        {
+                          type: "scatterpolar",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      histogram: [
+                        {
+                          marker: {
+                            pattern: {
+                              fillmode: "overlay",
+                              size: 10,
+                              solidity: 0.2,
+                            },
+                          },
+                          type: "histogram",
+                        },
+                      ],
+                      scattergl: [
+                        {
+                          type: "scattergl",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scatter3d: [
+                        {
+                          type: "scatter3d",
+                          line: { colorbar: { outlinewidth: 0, ticks: "" } },
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scattermap: [
+                        {
+                          type: "scattermap",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scattermapbox: [
+                        {
+                          type: "scattermapbox",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scatterternary: [
+                        {
+                          type: "scatterternary",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      scattercarpet: [
+                        {
+                          type: "scattercarpet",
+                          marker: { colorbar: { outlinewidth: 0, ticks: "" } },
+                        },
+                      ],
+                      carpet: [
+                        {
+                          aaxis: {
+                            endlinecolor: "#2a3f5f",
+                            gridcolor: "white",
+                            linecolor: "white",
+                            minorgridcolor: "white",
+                            startlinecolor: "#2a3f5f",
+                          },
+                          baxis: {
+                            endlinecolor: "#2a3f5f",
+                            gridcolor: "white",
+                            linecolor: "white",
+                            minorgridcolor: "white",
+                            startlinecolor: "#2a3f5f",
+                          },
+                          type: "carpet",
+                        },
+                      ],
+                      table: [
+                        {
+                          cells: {
+                            fill: { color: "#EBF0F8" },
+                            line: { color: "white" },
+                          },
+                          header: {
+                            fill: { color: "#C8D4E3" },
+                            line: { color: "white" },
+                          },
+                          type: "table",
+                        },
+                      ],
+                      barpolar: [
+                        {
+                          marker: {
+                            line: { color: "#E5ECF6", width: 0.5 },
+                            pattern: {
+                              fillmode: "overlay",
+                              size: 10,
+                              solidity: 0.2,
+                            },
+                          },
+                          type: "barpolar",
+                        },
+                      ],
+                      pie: [{ automargin: true, type: "pie" }],
+                    },
+                    layout: {
+                      autotypenumbers: "strict",
+                      colorway: [
+                        "#636efa",
+                        "#EF553B",
+                        "#00cc96",
+                        "#ab63fa",
+                        "#FFA15A",
+                        "#19d3f3",
+                        "#FF6692",
+                        "#B6E880",
+                        "#FF97FF",
+                        "#FECB52",
+                      ],
+                      font: { color: "#2a3f5f" },
+                      hovermode: "closest",
+                      hoverlabel: { align: "left" },
+                      paper_bgcolor: "white",
+                      plot_bgcolor: "#E5ECF6",
+                      polar: {
+                        bgcolor: "#E5ECF6",
+                        angularaxis: {
+                          gridcolor: "white",
+                          linecolor: "white",
+                          ticks: "",
+                        },
+                        radialaxis: {
+                          gridcolor: "white",
+                          linecolor: "white",
+                          ticks: "",
+                        },
+                      },
+                      ternary: {
+                        bgcolor: "#E5ECF6",
+                        aaxis: {
+                          gridcolor: "white",
+                          linecolor: "white",
+                          ticks: "",
+                        },
+                        baxis: {
+                          gridcolor: "white",
+                          linecolor: "white",
+                          ticks: "",
+                        },
+                        caxis: {
+                          gridcolor: "white",
+                          linecolor: "white",
+                          ticks: "",
+                        },
+                      },
+                      coloraxis: { colorbar: { outlinewidth: 0, ticks: "" } },
+                      colorscale: {
+                        sequential: [
+                          [0.0, "#0d0887"],
+                          [0.1111111111111111, "#46039f"],
+                          [0.2222222222222222, "#7201a8"],
+                          [0.3333333333333333, "#9c179e"],
+                          [0.4444444444444444, "#bd3786"],
+                          [0.5555555555555556, "#d8576b"],
+                          [0.6666666666666666, "#ed7953"],
+                          [0.7777777777777778, "#fb9f3a"],
+                          [0.8888888888888888, "#fdca26"],
+                          [1.0, "#f0f921"],
+                        ],
+                        sequentialminus: [
+                          [0.0, "#0d0887"],
+                          [0.1111111111111111, "#46039f"],
+                          [0.2222222222222222, "#7201a8"],
+                          [0.3333333333333333, "#9c179e"],
+                          [0.4444444444444444, "#bd3786"],
+                          [0.5555555555555556, "#d8576b"],
+                          [0.6666666666666666, "#ed7953"],
+                          [0.7777777777777778, "#fb9f3a"],
+                          [0.8888888888888888, "#fdca26"],
+                          [1.0, "#f0f921"],
+                        ],
+                        diverging: [
+                          [0, "#8e0152"],
+                          [0.1, "#c51b7d"],
+                          [0.2, "#de77ae"],
+                          [0.3, "#f1b6da"],
+                          [0.4, "#fde0ef"],
+                          [0.5, "#f7f7f7"],
+                          [0.6, "#e6f5d0"],
+                          [0.7, "#b8e186"],
+                          [0.8, "#7fbc41"],
+                          [0.9, "#4d9221"],
+                          [1, "#276419"],
+                        ],
+                      },
+                      xaxis: {
+                        gridcolor: "white",
+                        linecolor: "white",
+                        ticks: "",
+                        title: { standoff: 15 },
+                        zerolinecolor: "white",
+                        automargin: true,
+                        zerolinewidth: 2,
+                      },
+                      yaxis: {
+                        gridcolor: "white",
+                        linecolor: "white",
+                        ticks: "",
+                        title: { standoff: 15 },
+                        zerolinecolor: "white",
+                        automargin: true,
+                        zerolinewidth: 2,
+                      },
+                      scene: {
+                        xaxis: {
+                          backgroundcolor: "#E5ECF6",
+                          gridcolor: "white",
+                          linecolor: "white",
+                          showbackground: true,
+                          ticks: "",
+                          zerolinecolor: "white",
+                          gridwidth: 2,
+                        },
+                        yaxis: {
+                          backgroundcolor: "#E5ECF6",
+                          gridcolor: "white",
+                          linecolor: "white",
+                          showbackground: true,
+                          ticks: "",
+                          zerolinecolor: "white",
+                          gridwidth: 2,
+                        },
+                        zaxis: {
+                          backgroundcolor: "#E5ECF6",
+                          gridcolor: "white",
+                          linecolor: "white",
+                          showbackground: true,
+                          ticks: "",
+                          zerolinecolor: "white",
+                          gridwidth: 2,
+                        },
+                      },
+                      shapedefaults: { line: { color: "#2a3f5f" } },
+                      annotationdefaults: {
+                        arrowcolor: "#2a3f5f",
+                        arrowhead: 0,
+                        arrowwidth: 1,
+                      },
+                      geo: {
+                        bgcolor: "white",
+                        landcolor: "#E5ECF6",
+                        subunitcolor: "white",
+                        showland: true,
+                        showlakes: true,
+                        lakecolor: "white",
+                      },
+                      title: { x: 0.05 },
+                      mapbox: { style: "light" },
+                    },
+                  },
+                  geo: {
+                    domain: { x: [0.0, 1.0], y: [0.0, 1.0] },
+                    center: {},
+                    showframe: false,
+                    showcoastlines: false,
+                  },
+                  coloraxis: {
+                    colorbar: {
+                      title: { text: "Ladder Score" },
+                      tickvals: [2, 3, 4, 5, 6, 7, 8],
+                    },
+                    colorscale: [
+                      [0.0, "midnightblue"],
+                      [0.15, "blue"],
+                      [0.3, "dodgerblue"],
+                      [0.45, "deeppink"],
+                      [0.6, "darkorange"],
+                      [0.75, "yellow"],
+                      [0.85, "lightgreen"],
+                      [1.0, "darkgreen"],
+                    ],
+                    cmin: 2,
+                    cmax: 8,
+                  },
+                  legend: { tracegroupgap: 0 },
+                  title: {
+                    text: "World Happiness Score (2024) \u2014 with GDP",
+                  },
+                },
+                { responsive: true }
+              );
+            }
+          </script>
+        </div>
+        <p class="content__description">
+          As shown on the map, the happiest people live in Finland (score 7.74),
+          the Netherlands (7.52), and Iceland (7.51). All the green areas around
+          the world represent places where people report the highest levels of
+          happiness. In a way, this brings us full circle — as you can see in
+          the attached image, these happiness scores strongly correlate with
+          economic conditions and income data. Hover over any country to see its
+          happiness score and GDP. Based on this analysis, my top picks would
+          definitely be the Netherlands and Iceland. What about you? Have you
+          found your dream place to live? Did this analysis confirm your current
+          beliefs — or maybe change your mind?
+        </p>
+      </section>
+    </main>
+    <footer class="app__footer footer">
+      <div class="footer__inner">
+        <p class="footer__text">
+          Made with ❤️ by Karolina Kruczek using Shiny for Python
+          <a
+            href="https://carolineexplores.shinyapps.io/livingcost_dashboard/"
+            class="footer__link link"
+            >Click</a
+          >
+        </p>
+      </div>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>
